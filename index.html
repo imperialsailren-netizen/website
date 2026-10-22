@@ -264,7 +264,7 @@
       <h2 class="section-title">Fresh in the Stash</h2>
       <p class="section-sub">Fan-favourite cards at pocket-money prices: everything in the stash is $50 or under.</p>
       <div class="grid" id="productGrid"></div>
-      <p class="example-note">* Example listings for practice only. Prices are approximate (based on recent market prices, converted to CAD) and not real offers.</p>
+      <p class="example-note">* Practice site: example listings with example prices only, not real offers.</p>
     </div>
   </section>
 
@@ -328,16 +328,16 @@
 
   <!-- ===== JAVASCRIPT: builds the product grid and makes the cart work ===== -->
   <script>
-    // 1) PRODUCT DATA: example listings (real card names, approximate Oct 2026 market prices in CAD). Add, remove or edit items here and the grid updates automatically.
+    // 1) PRODUCT DATA: example listings (real card names, example prices in CAD). Add, remove or edit items here and the grid updates automatically.
     const PRODUCTS = [
-      { id: 1, name: "Charizard ex (Double Rare)", set: "Obsidian Flames · 125/197",     condition: "Near Mint",      price: 9.99,  emoji: "🔥", colors: ["#fb923c", "#b91c1c"], holo: true },
-      { id: 2, name: "Umbreon V",                 set: "Evolving Skies · 094/203",      condition: "Near Mint",      price: 11.99, emoji: "🌙", colors: ["#475569", "#0f172a"], holo: true },
-      { id: 3, name: "Pikachu ex (Full Art)",     set: "Surging Sparks · 219/191",      condition: "Near Mint",      price: 41.99, emoji: "⚡", colors: ["#fde047", "#f59e0b"], holo: true },
-      { id: 4, name: "Gengar Holo",               set: "Scarlet & Violet 151 · 094/165", condition: "Near Mint",     price: 5.49,  emoji: "👻", colors: ["#a78bfa", "#312e81"], holo: true },
-      { id: 5, name: "Eevee",                     set: "Scarlet & Violet 151 · 133/165", condition: "PSA 9",         price: 22.99, emoji: "🦊", colors: ["#fcd34d", "#92400e"] },
-      { id: 6, name: "Mewtwo Holo",               set: "Base Set · 10/102",             condition: "Lightly Played", price: 39.99, emoji: "🔮", colors: ["#c4b5fd", "#4c1d95"], holo: true },
-      { id: 7, name: "Dragonite Holo",            set: "Scarlet & Violet 151 · 149/165", condition: "Near Mint",     price: 2.99,  emoji: "🐲", colors: ["#fdba74", "#c2410c"] },
-      { id: 8, name: "151 Booster Pack (Sealed)", set: "Scarlet & Violet 151",          condition: "Sealed",         price: 40.99, emoji: "🎁", colors: ["#f472b6", "#9d174d"] }
+      { id: 1, name: "Charizard Holo",          set: "Base Set · 4/102",              condition: "PSA 9",          price: 49.99, emoji: "🔥", colors: ["#fb923c", "#b91c1c"], holo: true },
+      { id: 2, name: "Umbreon VMAX (Alt Art)",  set: "Evolving Skies · 215/203",      condition: "Near Mint",      price: 44.99, emoji: "🌙", colors: ["#475569", "#0f172a"], holo: true },
+      { id: 3, name: "Lugia V (Alt Art)",       set: "Silver Tempest · 186/195",      condition: "Near Mint",      price: 39.99, emoji: "🌊", colors: ["#cbd5e1", "#1e3a8a"], holo: true },
+      { id: 4, name: "Charizard ex (SIR)",      set: "Scarlet & Violet 151 · 199/165", condition: "Near Mint",     price: 34.99, emoji: "🐉", colors: ["#f97316", "#7c2d12"], holo: true },
+      { id: 5, name: "Pikachu ex (SIR)",        set: "Surging Sparks · 238/191",      condition: "Near Mint",      price: 29.99, emoji: "⚡", colors: ["#fde047", "#f59e0b"], holo: true },
+      { id: 6, name: "Mewtwo Holo",             set: "Base Set · 10/102",             condition: "Lightly Played", price: 24.99, emoji: "🔮", colors: ["#c4b5fd", "#4c1d95"], holo: true },
+      { id: 7, name: "Dragonite Holo",          set: "Scarlet & Violet 151 · 149/165", condition: "Near Mint",     price: 2.99,  emoji: "🐲", colors: ["#fdba74", "#c2410c"] },
+      { id: 8, name: "151 Booster Pack (Sealed)", set: "Scarlet & Violet 151",        condition: "Sealed",         price: 12.99, emoji: "🎁", colors: ["#f472b6", "#9d174d"] }
     ];
 
     // 2) CART STATE: an object like { productId: quantity }
