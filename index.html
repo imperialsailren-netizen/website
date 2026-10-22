@@ -262,9 +262,9 @@
   <section id="shop">
     <div class="container">
       <h2 class="section-title">Fresh in the Stash</h2>
-      <p class="section-sub">A few of this week's favourite pulls.</p>
+      <p class="section-sub">From pocket-money holos to grail cards: a few of this week's favourite pulls.</p>
       <div class="grid" id="productGrid"></div>
-      <p class="example-note">* Example listings for practice only. Card names, sets and prices are made up.</p>
+      <p class="example-note">* Example listings for practice only. Prices are approximate (based on recent market prices, converted to CAD) and not real offers.</p>
     </div>
   </section>
 
@@ -328,23 +328,23 @@
 
   <!-- ===== JAVASCRIPT: builds the product grid and makes the cart work ===== -->
   <script>
-    // 1) PRODUCT DATA: example listings. Add, remove or edit items here and the grid updates automatically.
+    // 1) PRODUCT DATA: example listings (real card names, approximate Oct 2026 market prices in CAD). Add, remove or edit items here and the grid updates automatically.
     const PRODUCTS = [
-      { id: 1, name: "Blaze Dragon Holo",   set: "Example Base Set",    condition: "PSA 10",       price: 349.99, emoji: "🔥", colors: ["#fb923c", "#b91c1c"], holo: true },
-      { id: 2, name: "Spark Mouse",         set: "Example Jungle",      condition: "Near Mint",    price: 12.50,  emoji: "⚡", colors: ["#fde047", "#f59e0b"] },
-      { id: 3, name: "Tide Turtle Holo",    set: "Example Base Set",    condition: "PSA 9",        price: 189.00, emoji: "🌊", colors: ["#60a5fa", "#1e3a8a"], holo: true },
-      { id: 4, name: "Leafy Lizard",        set: "Example Fossil",      condition: "Near Mint",    price: 8.75,   emoji: "🌿", colors: ["#4ade80", "#166534"] },
-      { id: 5, name: "Mystic Moon Fox",     set: "Example Neo",         condition: "Lightly Played", price: 24.00, emoji: "🌙", colors: ["#c4b5fd", "#4c1d95"] },
-      { id: 6, name: "Ghostly Grin Rare",   set: "Example Shadows",     condition: "PSA 8",        price: 74.99,  emoji: "👻", colors: ["#a78bfa", "#312e81"], holo: true },
-      { id: 7, name: "Rocky Golem",         set: "Example Fossil",      condition: "Near Mint",    price: 5.25,   emoji: "🪨", colors: ["#d6d3d1", "#57534e"] },
-      { id: 8, name: "Booster Pack (Sealed)", set: "Example Booster",  condition: "Sealed",       price: 6.99,   emoji: "🎁", colors: ["#f472b6", "#9d174d"] }
+      { id: 1, name: "Charizard Holo",          set: "Base Set · 4/102",              condition: "PSA 9",          price: 4849.99, emoji: "🔥", colors: ["#fb923c", "#b91c1c"], holo: true },
+      { id: 2, name: "Umbreon VMAX (Alt Art)",  set: "Evolving Skies · 215/203",      condition: "Near Mint",      price: 2424.99, emoji: "🌙", colors: ["#475569", "#0f172a"], holo: true },
+      { id: 3, name: "Lugia V (Alt Art)",       set: "Silver Tempest · 186/195",      condition: "Near Mint",      price: 604.99,  emoji: "🌊", colors: ["#cbd5e1", "#1e3a8a"], holo: true },
+      { id: 4, name: "Charizard ex (SIR)",      set: "Scarlet & Violet 151 · 199/165", condition: "Near Mint",     price: 429.99,  emoji: "🐉", colors: ["#f97316", "#7c2d12"], holo: true },
+      { id: 5, name: "Pikachu ex (SIR)",        set: "Surging Sparks · 238/191",      condition: "Near Mint",      price: 349.99,  emoji: "⚡", colors: ["#fde047", "#f59e0b"], holo: true },
+      { id: 6, name: "Mewtwo Holo",             set: "Base Set · 10/102",             condition: "Lightly Played", price: 39.99,   emoji: "🔮", colors: ["#c4b5fd", "#4c1d95"], holo: true },
+      { id: 7, name: "Dragonite Holo",          set: "Scarlet & Violet 151 · 149/165", condition: "Near Mint",     price: 2.99,    emoji: "🐲", colors: ["#fdba74", "#c2410c"] },
+      { id: 8, name: "151 Booster Pack (Sealed)", set: "Scarlet & Violet 151",        condition: "Sealed",         price: 40.99,   emoji: "🎁", colors: ["#f472b6", "#9d174d"] }
     ];
 
     // 2) CART STATE: an object like { productId: quantity }
     const cart = {};
 
-    // Helper: format a number as Canadian dollars, e.g. 12.5 -> "$12.50 CAD"
-    const money = n => "$" + n.toFixed(2) + " CAD";
+    // Helper: format a number as Canadian dollars, e.g. 4849.99 -> "$4,849.99 CAD"
+    const money = n => "$" + n.toLocaleString("en-CA", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " CAD";
 
     // Helper: the CSS background for a product's placeholder art
     const artBg = p => `linear-gradient(160deg, ${p.colors[0]}, ${p.colors[1]})`;
